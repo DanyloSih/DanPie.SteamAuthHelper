@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace SteamAuth
+namespace SteamWebClientHelper.Auth
 {
     public class AuthInfo
     {

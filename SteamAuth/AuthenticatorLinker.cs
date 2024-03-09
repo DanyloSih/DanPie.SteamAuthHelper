@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SteamAuth
+namespace SteamWebClientHelper.Auth
 {
     /// <summary>
     /// Handles the linking process for a new mobile authenticator.

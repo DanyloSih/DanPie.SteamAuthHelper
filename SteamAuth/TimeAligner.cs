@@ -4,7 +4,7 @@ using System.Net;
 using Newtonsoft.Json;
 using System.Text;
 
-namespace SteamAuth
+namespace SteamWebClientHelper.Auth
 {
     /// <summary>
     /// Class to help align system time with the Steam server time. Not super advanced; probably not taking some things into account that it should.
