@@ -6,8 +6,9 @@ using SteamKit2;
 using SteamKit2.Authentication;
 using SteamKit2.Internal;
 using System.Threading.Tasks;
+using System.Reflection;
 
-namespace TestBed
+namespace MaFileGenerator
 {
     class Program
     {
@@ -34,17 +35,19 @@ namespace TestBed
 
                 // Create a new auth session
                 CredentialsAuthSession authSession;
+                
                 try
                 {
-                    authSession = await steamClient.Authentication.BeginAuthSessionViaCredentialsAsync(new AuthSessionDetails
-                    {
-                        Username = username,
-                        Password = password,
-                        IsPersistentSession = false,
-                        PlatformType = EAuthTokenPlatformType.k_EAuthTokenPlatformType_MobileApp,
-                        ClientOSType = EOSType.Android9,
-                        Authenticator = new UserConsoleAuthenticator(),
-                    });
+                    authSession = await steamClient.Authentication
+                            .BeginAuthSessionViaCredentialsAsync(new AuthSessionDetails
+                        {
+                            Username = username,
+                            Password = password,
+                            IsPersistentSession = false,
+                            PlatformType = EAuthTokenPlatformType.k_EAuthTokenPlatformType_MobileApp,
+                            ClientOSType = EOSType.Android9,
+                            Authenticator = new UserConsoleAuthenticator(),
+                        });
                 }
                 catch (Exception ex)
                 {
@@ -113,11 +116,15 @@ namespace TestBed
                         break;
                     }
 
+                    string sgFile = "";
                     // Write maFile
                     try
                     {
-                        string sgFile = JsonConvert.SerializeObject(linker.LinkedAccount, Formatting.Indented);
-                        string fileName = linker.LinkedAccount.AccountName + ".maFile";
+                        sgFile = JsonConvert.SerializeObject(linker.LinkedAccount, Formatting.Indented);
+                        string fileName = Path.Combine(
+                            GetMaFilesFolderPath(), 
+                            linker.LinkedAccount.AccountName + ".maFile");
+
                         File.WriteAllText(fileName, sgFile);
                         break;
                     }
@@ -125,6 +132,7 @@ namespace TestBed
                     {
                         Console.WriteLine(e.Message);
                         Console.WriteLine("EXCEPTION saving maFile. For security, authenticator will not be finalized.");
+                        Console.WriteLine(sgFile);
                         break;
                     }
                 }
@@ -148,6 +156,22 @@ namespace TestBed
                     Console.WriteLine("Authenticator finalized!");
                     break;
                 }
+            }
+        }
+
+        public static string GetMaFilesFolderPath()
+        {
+            string assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string maFilesPath = Path.Combine(assemblyFolder, "MaFiles");
+            EnsureDirectoryExists(maFilesPath);
+            return maFilesPath;
+        }
+
+        private static void EnsureDirectoryExists(string path)
+        {
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
             }
         }
     }
