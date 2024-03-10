@@ -161,6 +161,7 @@ namespace DanPie.SteamAuthHelper
                 finalizeAuthenticatorValues.Add("validate_sms_code", "1");
 
                 string finalizeAuthenticatorResultStr;
+#pragma warning disable SYSLIB0014 // Type or member is obsolete
                 using (WebClient wc = new WebClient())
                 {
                     wc.Encoding = Encoding.UTF8;
@@ -168,6 +169,7 @@ namespace DanPie.SteamAuthHelper
                     byte[] finalizeAuthenticatorResult = await wc.UploadValuesTaskAsync(new Uri("https://api.steampowered.com/ITwoFactorService/FinalizeAddAuthenticator/v1/?access_token=" + this.Session.AccessToken), "POST", finalizeAuthenticatorValues);
                     finalizeAuthenticatorResultStr = Encoding.UTF8.GetString(finalizeAuthenticatorResult);
                 }
+#pragma warning restore SYSLIB0014 // Type or member is obsolete
 
                 FinalizeAuthenticatorResponse finalizeAuthenticatorResponse = JsonConvert.DeserializeObject<FinalizeAuthenticatorResponse>(finalizeAuthenticatorResultStr);
 

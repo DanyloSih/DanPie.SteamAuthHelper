@@ -36,6 +36,7 @@ namespace DanPie.SteamAuthHelper
         public static void AlignTime()
         {
             long currentTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+#pragma warning disable SYSLIB0014 // Type or member is obsolete
             using (WebClient client = new WebClient())
             {
                 client.Encoding = Encoding.UTF8;
@@ -51,12 +52,15 @@ namespace DanPie.SteamAuthHelper
                     return;
                 }
             }
+#pragma warning restore SYSLIB0014 // Type or member is obsolete
         }
 
         public static async Task AlignTimeAsync()
         {
             long currentTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+#pragma warning disable SYSLIB0014 // Type or member is obsolete
             WebClient client = new WebClient();
+#pragma warning restore SYSLIB0014 // Type or member is obsolete
             try
             {
                 client.Encoding = Encoding.UTF8;
