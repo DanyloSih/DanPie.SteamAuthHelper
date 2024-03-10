@@ -1,6 +1,6 @@
 # About
 A C# library that provides vital Steam Mobile Authenticator functionality.
-It's a fork of: SteamAuth (https://github.com/geel9/SteamAuth) repo.
+It's a fork of: [SteamAuth](https://github.com/geel9/SteamAuth) repo.
 
 # Functionality
 Currently, this library can:

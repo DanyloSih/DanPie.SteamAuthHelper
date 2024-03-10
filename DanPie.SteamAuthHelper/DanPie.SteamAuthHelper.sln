@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteamWebClientHelper.Auth", "SteamWebClientHelper.Auth.csproj", "{5AD0934E-F6C4-4AE5-83AF-C788313B2A87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DanPie.SteamAuthHelper", "DanPie.SteamAuthHelper.csproj", "{5AD0934E-F6C4-4AE5-83AF-C788313B2A87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
