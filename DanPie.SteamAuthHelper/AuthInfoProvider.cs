@@ -52,7 +52,7 @@ public class AuthInfoProvider
 		}
 
 		authInfo.UserName = maFileInfo[0];
-		authInfo.Password = maFileInfo[1];
+		authInfo.Password = maFileInfo[1].Replace(fileExtension, "");
 		authInfo.Code = await steamGuardAccount.GenerateSteamGuardCodeAsync();	
 		return authInfo;
 	}
