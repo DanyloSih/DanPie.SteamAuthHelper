@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SteamWebClientHelper.Auth
+namespace DanPie.SteamAuthHelper
 {
     /// <summary>
     /// Handles the linking process for a new mobile authenticator.

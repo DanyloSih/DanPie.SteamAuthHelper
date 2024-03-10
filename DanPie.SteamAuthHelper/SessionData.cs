@@ -6,7 +6,7 @@ using System.Net;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-namespace SteamWebClientHelper.Auth
+namespace DanPie.SteamAuthHelper
 {
     public class SessionData
     {

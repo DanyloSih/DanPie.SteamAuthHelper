@@ -4,7 +4,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SteamWebClientHelper.Auth
+namespace DanPie.SteamAuthHelper
 {
     public class SteamWeb
     {

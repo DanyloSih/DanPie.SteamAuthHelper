@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace SteamWebClientHelper
+namespace DanPie
 {
     public class CookieAwareWebClient : WebClient
     {
