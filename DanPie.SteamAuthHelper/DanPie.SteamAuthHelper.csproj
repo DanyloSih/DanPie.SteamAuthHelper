@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <AssemblyTitle>SteamAuth</AssemblyTitle>
     <Product>SteamWebClientHelper.Auth</Product>
-    <Copyright>Copyright ©  2015</Copyright>
+    <Copyright>Copyright ©  2024</Copyright>
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <Title>Authentication utilities for Steam</Title>
     <Authors>DanPie</Authors>
@@ -16,6 +16,7 @@ More: https://github.com/DanyloSih/DanPie.SteamAuthHelper</Description>
     <FileVersion>1.0.0</FileVersion>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -25,6 +26,10 @@ More: https://github.com/DanyloSih/DanPie.SteamAuthHelper</Description>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
