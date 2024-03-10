@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Net;
 
-namespace SteamWebClientHelper
+namespace DanPie
 {
+#pragma warning disable SYSLIB0014 // Type or member is obsolete
     public class CookieAwareWebClient : WebClient
     {
         public CookieContainer CookieContainer { get; set; } = new CookieContainer();
@@ -22,4 +23,5 @@ namespace SteamWebClientHelper
             return response;
         }
     }
+#pragma warning restore SYSLIB0014 // Type or member is obsolete
 }

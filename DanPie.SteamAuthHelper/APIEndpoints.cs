@@ -1,4 +1,4 @@
-﻿namespace SteamWebClientHelper.Auth
+﻿namespace DanPie.SteamAuthHelper
 {
     public static class APIEndpoints
     {

@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SteamWebClientHelper.Auth
+namespace DanPie.SteamAuthHelper
 {
     /// <summary>
     /// Handles the linking process for a new mobile authenticator.
@@ -161,6 +161,7 @@ namespace SteamWebClientHelper.Auth
                 finalizeAuthenticatorValues.Add("validate_sms_code", "1");
 
                 string finalizeAuthenticatorResultStr;
+#pragma warning disable SYSLIB0014 // Type or member is obsolete
                 using (WebClient wc = new WebClient())
                 {
                     wc.Encoding = Encoding.UTF8;
@@ -168,6 +169,7 @@ namespace SteamWebClientHelper.Auth
                     byte[] finalizeAuthenticatorResult = await wc.UploadValuesTaskAsync(new Uri("https://api.steampowered.com/ITwoFactorService/FinalizeAddAuthenticator/v1/?access_token=" + this.Session.AccessToken), "POST", finalizeAuthenticatorValues);
                     finalizeAuthenticatorResultStr = Encoding.UTF8.GetString(finalizeAuthenticatorResult);
                 }
+#pragma warning restore SYSLIB0014 // Type or member is obsolete
 
                 FinalizeAuthenticatorResponse finalizeAuthenticatorResponse = JsonConvert.DeserializeObject<FinalizeAuthenticatorResponse>(finalizeAuthenticatorResultStr);
 

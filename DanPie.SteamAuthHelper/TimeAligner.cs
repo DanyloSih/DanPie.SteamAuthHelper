@@ -4,7 +4,7 @@ using System.Net;
 using Newtonsoft.Json;
 using System.Text;
 
-namespace SteamWebClientHelper.Auth
+namespace DanPie.SteamAuthHelper
 {
     /// <summary>
     /// Class to help align system time with the Steam server time. Not super advanced; probably not taking some things into account that it should.
@@ -36,6 +36,7 @@ namespace SteamWebClientHelper.Auth
         public static void AlignTime()
         {
             long currentTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+#pragma warning disable SYSLIB0014 // Type or member is obsolete
             using (WebClient client = new WebClient())
             {
                 client.Encoding = Encoding.UTF8;
@@ -51,12 +52,15 @@ namespace SteamWebClientHelper.Auth
                     return;
                 }
             }
+#pragma warning restore SYSLIB0014 // Type or member is obsolete
         }
 
         public static async Task AlignTimeAsync()
         {
             long currentTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+#pragma warning disable SYSLIB0014 // Type or member is obsolete
             WebClient client = new WebClient();
+#pragma warning restore SYSLIB0014 // Type or member is obsolete
             try
             {
                 client.Encoding = Encoding.UTF8;

@@ -2,7 +2,7 @@
   <PropertyGroup>
     <ProjectGuid>{7B52988E-18E7-4473-958E-47368DE6403C}</ProjectGuid>
     <TargetFramework>net8.0</TargetFramework>
-    <AssemblyTitle>SteamAuth</AssemblyTitle>
+    <AssemblyTitle>SteamWebClientHelper.Auth</AssemblyTitle>
     <Product>SteamWebClientHelper.Auth</Product>
     <Copyright>Copyright ©  2024</Copyright>
     <OutputPath>bin\$(Configuration)\</OutputPath>
